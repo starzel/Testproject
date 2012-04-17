@@ -7,3 +7,8 @@ Changes
   that make packing the database a requirement [do3cc]
 - You can still set a user, but this is basically unsupported [do3cc]
 - Production does not allow unpinned eggs any longer [do3cc]
+
+2.0 (unreleased)
+================
+- removed user feature. Zope won't sudo [do3cc]
+- Added varnish haproxy [do3cc]
