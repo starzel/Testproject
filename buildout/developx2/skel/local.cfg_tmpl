@@ -32,7 +32,6 @@ eggs +=
 
 zcml =
 #    iw.debug
-#    z3c.deadlockdebugger
 
 parts +=
 #    test
