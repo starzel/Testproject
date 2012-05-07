@@ -54,11 +54,9 @@ backupdir = /home/starzel/backup/${buildout:site}
 vardir = /home/starzel/var/${buildout:site}
 logdir = ${buildout:vardir}/log
 
-
 [instance]
 # only needed if sauna.reload is used
 #zope-conf-additional = %import sauna.reload
-
 
 [ports]
 # Adjust the ports if necessary (e.g. if you run multiple sites without modifying /etc/hosts)
@@ -68,3 +66,11 @@ zeoclient1 = 8082
 zeoclient2 = 8083
 zeoclient_debug = 8084
 zeoserver = 8100
+
+[bindips]
+zeoserver = 127.0.0.1
+varnish = 127.0.0.1
+haproxy = 127.0.0.1
+zeoclient1 = 127.0.0.1
+zeoclient2 = 127.0.0.1
+zeoclient_debug = 127.0.0.1
