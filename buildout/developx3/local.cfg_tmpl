@@ -11,7 +11,7 @@ extends =
 #allow-picked-versions = true
 
 # Locally you might want some nice development extions:
-eggs +=
+eggs =
 # The obvious stuff
 #    plone.app.debugtoolbar
 #    Products.DocFinderTab
@@ -32,14 +32,13 @@ eggs +=
 
 zcml =
 #    iw.debug
-#    z3c.deadlockdebugger
 
 parts +=
 #    test
 #    coverage-test
 #    coverage-report
 #    zopeskel
-    
+
 
 # The following settings are only needed for production and preflight
 
@@ -69,4 +68,3 @@ zeoclient1 = 8082
 zeoclient2 = 8083
 zeoclient_debug = 8084
 zeoserver = 8100
-
