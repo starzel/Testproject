@@ -1,34 +1,38 @@
+# This file holds configuration custom to the local environment and use
+
 [buildout]
 # Choose which environment you are going to use
 extends = 
-#    https://raw.github.com/starzel/Testproject/master/buildout/develop/develop.cfg
-#    https://raw.github.com/starzel/Testproject/master/buildout/develop/production_preflight.cfg
-#    https://raw.github.com/starzel/Testproject/master/buildout/develop/production.cfg
+#    https://raw.github.com/starzel/Testproject/master/buildout/developx2/develop.cfg
+#    https://raw.github.com/starzel/Testproject/master/buildout/developx2/production_preflight.cfg
+#    https://raw.github.com/starzel/Testproject/master/buildout/developx2/production.cfg
 
-# Account data is needed for each profile
-#login=
-#password=
+# If you want you can have you eggs picked
+#allow-picked-versions = true
 
 # Locally you might want some nice development extions:
 eggs +=
-# Documention in tabls
+# The obvious stuff
+#    plone.app.debugtoolbar
 #    Products.DocFinderTab
-# A mailhost that does not send mails, but prints them
 #    Products.PrintingMailHost
-# pdb on each error
-#    Products.Ienablesettrace
-# Reload
 #    plone.reload
-# Automatic reload. Does not always work
-#    sauna.reload
-# Philips stuff
+# Allow debugging restricted code  
+#    Products.Ienablesettrace
+# Post-mortem debugging
+#    Products.PDBDebugMode
+# Debugging on the fly 
 #    iw.debug
 # Information where a deadlock occurs
 #    z3c.deadlockdebugger
-
-zcml +=
-#    plone.reload
+# Automatic reloads (needs additional config in [instance])
 #    sauna.reload
+# Needed for sauna.reload unter OSX
+#    watchdog
+
+zcml =
+#    iw.debug
+#    z3c.deadlockdebugger
 
 parts +=
 #    test
@@ -37,29 +41,32 @@ parts +=
 #    zopeskel
     
 
-
-
 # The following settings are only needed for production and preflight
 
+# Edit /etc/hosts so you can use "localip = ${buildout:site}" to run all sites on the same port.
+localip = 127.0.0.1
+
 # The project name, base for paths
-#site = projectname
-#backupdir = /tmp/starzel/backup/${buildout:site}
-#vardir=/tmp/starzel/var/${buildout:site}
-#logdir=${buildout:vardir}/log
+site = projectname
+
+# Adjust these to the directory-setup on the server. The default matches the setup on gocepts servers.
+# Relative paths: "backupdir = ${buildout:directory}/backup" and "vardir = ${buildout:directory}/var"
+backupdir = /home/starzel/backup/${buildout:site}
+vardir = /home/starzel/var/${buildout:site}
+logdir = ${buildout:vardir}/log
+
+
+[instance]
+# only needed if sauna.reload is used
+#zope-conf-additional = %import sauna.reload
+
 
 [ports]
-# Ports are only used for production and preflight
-#zeoserver = 8100
-#varnish = 8080
-#haproxy = 8081
-#zeoclient1 = 8082
-#zeoclient2 = 8083
-#zeoclient_debug = 8084
+# Adjust the ports if necessary (e.g. if you run multiple sites without modifying /etc/hosts)
+varnish = 8080
+haproxy = 8081
+zeoclient1 = 8082
+zeoclient2 = 8083
+zeoclient_debug = 8084
+zeoserver = 8100
 
-[bindips]
-zeoserver = 127.0.0.1
-varnish = 127.0.0.1
-haproxy = 127.0.0.1
-zeoclient1 = 127.0.0.1
-zeoclient2 = 127.0.0.1
-zeoclient_debug = 127.0.0.1
