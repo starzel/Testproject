@@ -4,7 +4,6 @@
 # Choose which environment you are going to use
 extends = 
 #    https://raw.github.com/starzel/Testproject/master/buildout/developx3/linkto/develop.cfg
-#    https://raw.github.com/starzel/Testproject/master/buildout/developx3/linkto/production_preflight.cfg
 #    https://raw.github.com/starzel/Testproject/master/buildout/developx3/linkto/production.cfg
 
 # If you want you can have you eggs picked
