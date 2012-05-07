@@ -12,3 +12,10 @@ Changes
 ================
 - removed user feature. Zope won't sudo [do3cc]
 - Added varnish haproxy [do3cc]
+
+3.0 (unreleased)
+================
+- rearrange folder-structure to work ootb [pbauer]
+- fix zcml- and egg-inheritance [pbauer]
+- add empty pinned- and floating-versions to overwrite the hosted files [pbauer]
+
