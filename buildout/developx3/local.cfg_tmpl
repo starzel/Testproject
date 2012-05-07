@@ -3,9 +3,9 @@
 [buildout]
 # Choose which environment you are going to use
 extends = 
-#    https://raw.github.com/starzel/Testproject/master/buildout/developx3/develop.cfg
-#    https://raw.github.com/starzel/Testproject/master/buildout/developx3/production_preflight.cfg
-#    https://raw.github.com/starzel/Testproject/master/buildout/developx3/production.cfg
+#    https://raw.github.com/starzel/Testproject/master/buildout/developx3/linkto/develop.cfg
+#    https://raw.github.com/starzel/Testproject/master/buildout/developx3/linkto/production_preflight.cfg
+#    https://raw.github.com/starzel/Testproject/master/buildout/developx3/linkto/production.cfg
 
 # If you want you can have you eggs picked
 #allow-picked-versions = true
